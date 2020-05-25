@@ -1,0 +1,9 @@
+-- Your SQL goes here
+CREATE TABLE posts (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  body TEXT NOT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+  created_at TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+)
