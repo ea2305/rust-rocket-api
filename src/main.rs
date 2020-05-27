@@ -13,10 +13,9 @@ use dotenv::dotenv;
 mod app;
 mod schema;
 mod config;
-
 mod ignite;
 
 fn main() {
     dotenv().ok();
-    ignite::create_routes();
+    ignite::generate_routes();
 }
