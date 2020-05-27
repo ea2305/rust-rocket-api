@@ -1,6 +1,6 @@
 table! {
     posts (id) {
-        id -> Bigint,
+        id -> Integer,
         title -> Varchar,
         body -> Text,
         updated_at -> Timestamp,
