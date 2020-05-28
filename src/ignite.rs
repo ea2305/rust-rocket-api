@@ -7,7 +7,11 @@ pub fn generate_routes() {
     .manage(config::database::init_pool())
     .mount("/posts",
       routes![
-        posts::index
+        posts::all,
+        posts::get,
+        posts::post,
+        posts::put,
+        posts::delete
       ]
     )
     .launch();

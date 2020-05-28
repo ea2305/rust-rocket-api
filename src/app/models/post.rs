@@ -14,18 +14,9 @@ pub struct Post {
 }
 
 // Create Schema
-#[derive(Insertable)]
+#[derive(Insertable, Serialize, Deserialize)]
 #[table_name = "posts"]
 pub struct InsertablePost {
     pub title: String,
     pub body: String
-}
-
-impl InsertablePost {
-    pub fn from_post (post: Post) -> InsertablePost {
-        InsertablePost {
-            title: post.title,
-            body: post.body,
-        }
-    }
 }
