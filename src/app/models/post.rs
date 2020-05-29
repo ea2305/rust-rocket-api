@@ -3,8 +3,7 @@ use crate::schema::posts;
 use chrono::NaiveDateTime; // handle datetime with diesel
 
 // Base schema
-#[derive(Queryable, AsChangeset, Serialize, Deserialize)]
-#[table_name = "posts"]
+#[derive(Queryable, Serialize, Deserialize)]
 pub struct Post {
     pub id: i32,
     pub title: String,
@@ -14,7 +13,7 @@ pub struct Post {
 }
 
 // Create Schema
-#[derive(Insertable, Serialize, Deserialize)]
+#[derive(Insertable, AsChangeset, Serialize, Deserialize)]
 #[table_name = "posts"]
 pub struct InsertablePost {
     pub title: String,

@@ -22,7 +22,7 @@ pub fn insert(post: InsertablePost, connection: &MysqlConnection) -> QueryResult
     posts::table.find(index).get_result::<Post>(connection)
 }
 
-pub fn update(id: i32, post: Post, connection: &MysqlConnection) -> QueryResult<Post> {
+pub fn update(id: i32, post: InsertablePost, connection: &MysqlConnection) -> QueryResult<Post> {
     let index = diesel::update(posts::table.find(id))
         .set(&post)
         .execute(connection)

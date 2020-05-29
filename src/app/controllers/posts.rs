@@ -41,9 +41,9 @@ pub fn post_created(post: Post) -> status::Created<Json<Post>> {
     status::Created(format!("Success").to_string(), Some(Json(post)))
 }
 
-#[put("/<id>", format = "application/json", data = "<post>")]
-pub fn put(id: i32, post: Json<Post>, connection: DbConn) -> Result<Json<Post>, Status> {
-    services::post::update(id, post.into_inner(), &connection)
+#[put("/<id>", format = "application/json", data = "<insertable_post>")]
+pub fn put(id: i32, insertable_post: Json<InsertablePost>, connection: DbConn) -> Result<Json<Post>, Status> {
+    services::post::update(id, insertable_post.into_inner(), &connection)
         .map(|post| Json(post))
         .map_err(|error| error_status(error))
 }
